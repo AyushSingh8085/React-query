@@ -29,5 +29,17 @@
       "id": 3,
       "name": "Rachel Green"
     }
+  ],
+  "users": [
+    {
+      "id": "ayush@example.com",
+      "channelId": "ayushwebTech"
+    }
+  ],
+  "channels": [
+    {
+      "id": "ayushwebTech",
+      "courses": ["js", "react", "next"]
+    }
   ]
 }

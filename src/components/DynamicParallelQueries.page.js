@@ -19,8 +19,6 @@ export const DynamicParallelQueriesPage = ({ heroIds }) => {
     })
   );
 
-  console.log(queryResults);
-
   const superHeroesQuery = queryResults[0];
 
   return <div>DynamicParallelQueriesPage</div>;
