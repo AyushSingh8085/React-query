@@ -1,9 +1,4 @@
-import axios from "axios";
-import { useQuery } from "react-query";
-
-const fetchRQSuperHeroes = () => {
-  return axios.get("http://localhost:4000/superheroes");
-};
+import { useSuperHeroesData } from "../hooks/useSuperHeroesData";
 
 export const RQSuperHeroesPage = () => {
   const onSuccess = (data) => {
@@ -14,25 +9,8 @@ export const RQSuperHeroesPage = () => {
     console.log("Perform side effect after countering error", error);
   };
 
-  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
-    "super-heroes",
-    fetchRQSuperHeroes,
-    {
-      // cacheTime: 5000,
-      // staleTime: 30000,
-      // refetchOnMount: false,
-      // refreshOnWindowFocus: true,
-      // refetchInterval: 2000,
-      // refetchIntervalInBackground: true,
-      // enabled: false,
-      onSuccess,
-      onError,
-      select: (data) => {
-        const superHeroes = data?.data.map((hero) => hero.name);
-        return superHeroes;
-      },
-    }
-  );
+  const { isLoading, data, isError, error, isFetching, refetch } =
+    useSuperHeroesData(onSuccess, onError);
 
   if (isLoading) {
     return <h2>Loading...</h2>;
