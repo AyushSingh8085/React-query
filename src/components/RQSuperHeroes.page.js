@@ -27,6 +27,10 @@ export const RQSuperHeroesPage = () => {
       // enabled: false,
       onSuccess,
       onError,
+      select: (data) => {
+        const superHeroes = data?.data.map((hero) => hero.name);
+        return superHeroes;
+      },
     }
   );
 
@@ -46,9 +50,15 @@ export const RQSuperHeroesPage = () => {
     <>
       <h2>RQ Super Heros Page</h2>
       <button onClick={refetch}>Fetch Data</button>
-      {data?.data.map((hero) => (
+      {/* {data?.data.map((hero) => (
         <div key={hero.id}>
           <p>{hero.name}</p>
+        </div>
+      ))} */}
+
+      {data?.map((heroName) => (
+        <div key={heroName}>
+          <p>{heroName}</p>
         </div>
       ))}
     </>
