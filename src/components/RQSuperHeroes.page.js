@@ -11,6 +11,7 @@ export const RQSuperHeroesPage = () => {
     fetchRQSuperHeroes,
     {
       cacheTime: 5000,
+      staleTime: 30000,
     }
   );
 
