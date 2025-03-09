@@ -27,9 +27,16 @@ export const RQSuperHeroesPage = () => {
     error: addHeroErrorMessage,
   } = useAddSuperHeroData();
 
-  const handleAddHeroClick = () => {
+  const handleAddHeroClick = (e) => {
+    e.preventDefault();
     const hero = { name, alterEgo };
-    addHero(hero);
+
+    if (name && alterEgo) {
+      addHero(hero);
+    }
+
+    setName("");
+    setAlterEgo("");
   };
 
   if (isLoading) {
